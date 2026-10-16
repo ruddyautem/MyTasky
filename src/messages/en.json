@@ -1,0 +1,53 @@
+{
+  "Metadata": {
+    "description": "Organize your tasks and track your progress in one place."
+  },
+  "TaskManager": {
+    "allDoneBadge": "100% done",
+    "emptyAll": "No tasks yet. Add your first task to get started.",
+    "emptyTodo": "You've finished every task on your to-do list.",
+    "emptyDone": "You haven't completed any tasks yet.",
+    "emptyUnknown": "No tasks match this filter.",
+    "allDoneBanner": "You've completed all your tasks.",
+    "clearAll": "Clear all",
+    "rights": "All rights reserved"
+  },
+  "TaskForm": {
+    "newTask": "New task",
+    "placeholder": "Add a task...",
+    "add": "Add",
+    "required": "Enter a task before adding it."
+  },
+  "TaskList": {
+    "selectAll": "Mark all as complete",
+    "deselectAll": "Mark all as incomplete",
+    "deleteSelected": "Delete completed tasks"
+  },
+  "TaskItem": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "editTitle": "Edit title",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "Filters": {
+    "label": "Filter tasks",
+    "all": "All tasks",
+    "todo": "Tasks to do",
+    "done": "Completed tasks"
+  },
+  "Progress": {
+    "label": "Progress: {percentage}%"
+  },
+  "Theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode",
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "Language": {
+    "label": "Language",
+    "toFrench": "Switch to French",
+    "toEnglish": "Switch to English"
+  }
+}

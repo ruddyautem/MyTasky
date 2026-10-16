@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Hide the new snapshot from its first frame, then reveal it from the button. */
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation: none;
+}
+
+html[data-magicui-theme-vt="active"] *,
+html[data-magicui-theme-vt="active"] *::before,
+html[data-magicui-theme-vt="active"] *::after {
+  transition: none !important;
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-old(root),
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-old(root) {
+  z-index: 1;
+}
+
+html[data-magicui-theme-vt="active"]::view-transition-new(root) {
+  z-index: 2;
+  clip-path: circle(0px at var(--theme-toggle-x) var(--theme-toggle-y));
+  animation: theme-reveal 400ms ease-in-out both;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0px at var(--theme-toggle-x) var(--theme-toggle-y));
+  }
+  to {
+    clip-path: circle(var(--theme-toggle-radius) at var(--theme-toggle-x) var(--theme-toggle-y));
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

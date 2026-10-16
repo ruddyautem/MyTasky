@@ -1,0 +1,53 @@
+{
+  "Metadata": {
+    "description": "Organisez vos tâches et suivez votre progression au même endroit."
+  },
+  "TaskManager": {
+    "allDoneBadge": "100% fini",
+    "emptyAll": "Aucune tâche pour le moment. Ajoutez votre première tâche.",
+    "emptyTodo": "Vous avez terminé toutes vos tâches à faire.",
+    "emptyDone": "Vous n'avez encore terminé aucune tâche.",
+    "emptyUnknown": "Aucune tâche ne correspond à ce filtre.",
+    "allDoneBanner": "Toutes vos tâches sont terminées.",
+    "clearAll": "Tout effacer",
+    "rights": "Tous droits réservés"
+  },
+  "TaskForm": {
+    "newTask": "Nouvelle tâche",
+    "placeholder": "Ajouter une tâche...",
+    "add": "Ajouter",
+    "required": "Saisissez une tâche avant de l'ajouter."
+  },
+  "TaskList": {
+    "selectAll": "Tout marquer comme terminé",
+    "deselectAll": "Tout marquer comme non terminé",
+    "deleteSelected": "Supprimer les tâches terminées"
+  },
+  "TaskItem": {
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "editTitle": "Modifier le titre",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  },
+  "Filters": {
+    "label": "Filtrer les tâches",
+    "all": "Toutes les tâches",
+    "todo": "Tâches à faire",
+    "done": "Tâches terminées"
+  },
+  "Progress": {
+    "label": "Progression : {percentage} %"
+  },
+  "Theme": {
+    "toLight": "Passer au mode clair",
+    "toDark": "Passer au mode sombre",
+    "light": "Mode clair",
+    "dark": "Mode sombre"
+  },
+  "Language": {
+    "label": "Langue",
+    "toFrench": "Passer en français",
+    "toEnglish": "Passer en anglais"
+  }
+}
