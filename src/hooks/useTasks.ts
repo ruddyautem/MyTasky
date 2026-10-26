@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { recoverTasks } from "@/lib/task-storage";
 import type { Task, TaskFilter, TaskCounts } from "@/types/task";
 
 const STORAGE_KEY = "tasks";
@@ -17,24 +18,25 @@ export const useTasks = () => {
   const [filter, setFilter] = useState<TaskFilter>("all");
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const [storageError, setStorageError] = useState(false);
+  const canPersist = useRef(false);
+
   // Safe client-side hydration from localStorage
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
-        const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) {
-          const validated: Task[] = parsed.map((item: Partial<Task>) => ({
-            id: typeof item.id === "string" ? item.id : generateId(),
-            title: typeof item.title === "string" ? item.title : "",
-            done: Boolean(item.done),
-            createdAt: typeof item.createdAt === "number" ? item.createdAt : Date.now(),
-          }));
-          setTasks(validated);
+        const { tasks: validated, recovered } = recoverTasks(raw, generateId);
+        setTasks(validated);
+        if (recovered) {
+          localStorage.setItem(STORAGE_KEY + ':recovery', raw);
+          setStorageError(true);
         }
       }
+      canPersist.current = true;
     } catch (error) {
-      console.error("Failed to load tasks from localStorage:", error);
+      setStorageError(true);
+      console.error('Failed to load tasks from localStorage:', error);
     } finally {
       setIsLoaded(true);
     }
@@ -42,10 +44,11 @@ export const useTasks = () => {
 
   // Save changes to localStorage only after initial client load
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isLoaded || !canPersist.current) return;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
     } catch (error) {
+      setStorageError(true);
       console.error("Failed to save tasks to localStorage:", error);
     }
   }, [tasks, isLoaded]);
@@ -133,6 +136,7 @@ export const useTasks = () => {
     tasks,
     filter,
     isLoaded,
+    storageError,
     counts,
     progressPercentage,
     filteredTasks,

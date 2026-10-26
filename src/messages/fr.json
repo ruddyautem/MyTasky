@@ -10,7 +10,8 @@
     "emptyUnknown": "Aucune tâche ne correspond à ce filtre.",
     "allDoneBanner": "Toutes vos tâches sont terminées.",
     "clearAll": "Tout effacer",
-    "rights": "Tous droits réservés"
+    "rights": "Tous droits réservés",
+    "storageError": "Le stockage local nécessite une vérification. Une copie récupérable est conservée si possible ; les modifications peuvent ne pas être sauvegardées."
   },
   "TaskForm": {
     "newTask": "Nouvelle tâche",

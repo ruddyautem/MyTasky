@@ -13,7 +13,8 @@ export const ThemeToggle = () => {
   const transitionInProgress = useRef(false);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
+    let storedTheme: string | null = null;
+    try { storedTheme = localStorage.getItem("theme"); } catch { /* Theme works in memory. */ }
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initialDark = storedTheme === "dark" || (!storedTheme && systemPrefersDark);
 
@@ -33,7 +34,7 @@ export const ThemeToggle = () => {
     const applyTheme = () => {
       setIsDark(nextDark);
       document.documentElement.classList.toggle("dark", nextDark);
-      localStorage.setItem("theme", nextDark ? "dark" : "light");
+      try { localStorage.setItem("theme", nextDark ? "dark" : "light"); } catch { /* Theme works in memory. */ }
     };
 
     const viewTransitionDocument = document as Document & {

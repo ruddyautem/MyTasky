@@ -10,7 +10,8 @@
     "emptyUnknown": "No tasks match this filter.",
     "allDoneBanner": "You've completed all your tasks.",
     "clearAll": "Clear all",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "storageError": "Local storage needs attention. A recovery copy is kept where possible; changes may not be saved."
   },
   "TaskForm": {
     "newTask": "New task",

@@ -169,3 +169,8 @@ There is no automated test script yet; `lint` and `build` are the available chec
 ### About me
 
 I'm Ruddy Autem, a Full Stack developer. You can find my other projects at [autem.dev](https://autem.dev) and on [GitHub](https://github.com/ruddyautem).
+
+
+### Données locales et récupération
+
+Les enregistrements valides sont récupérés même si une entrée sauvegardée est nulle ou incorrecte. Avant de remplacer une liste partiellement récupérée, l’original est conservé dans tasks:recovery. Un JSON illisible ou un stockage indisponible ne déclenche pas l’écrasement du contenu original : l’application reste utilisable en mémoire et affiche un avertissement. Les onglets concurrents restent soumis à la dernière écriture du navigateur. Tests de récupération : bun run test.

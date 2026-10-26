@@ -74,7 +74,8 @@ export const TaskItem = ({
         <>
           <div className="flex-1 flex items-center gap-3 min-w-0">
             {/* Checkbox indicator */}
-            <div
+            <button type="button" role="checkbox" aria-checked={task.done} aria-label={task.title}
+              onClick={(e) => { e.stopPropagation(); onToggleDone(task.id); }}
               className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 border transition-all ${
                 task.done
                   ? "bg-zinc-900 dark:bg-zinc-100 border-zinc-900 dark:border-zinc-100 text-white dark:text-zinc-900 shadow-xs"
@@ -82,7 +83,7 @@ export const TaskItem = ({
               }`}
             >
               {task.done && <Check className="w-3 h-3" strokeWidth={3} />}
-            </div>
+            </button>
 
             {/* Task Title */}
             <span
@@ -101,7 +102,7 @@ export const TaskItem = ({
           </div>
 
           {/* Action buttons */}
-          <div className="flex items-center gap-1 shrink-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+          <div className="flex items-center gap-1 shrink-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
             <button
               type="button"
               className="p-1.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 rounded-lg hover:bg-zinc-200/50 dark:hover:bg-white/[0.08] transition cursor-pointer"

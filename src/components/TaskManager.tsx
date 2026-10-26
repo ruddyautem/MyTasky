@@ -17,6 +17,7 @@ export const TaskManager = () => {
     tasks,
     filter,
     isLoaded,
+    storageError,
     counts,
     progressPercentage,
     filteredTasks,
@@ -100,6 +101,7 @@ export const TaskManager = () => {
 
         {/* Input Form */}
         <TaskForm onAddTask={addTask} />
+        {storageError && <p role="alert" className="mb-4 text-xs text-amber-600 dark:text-amber-400">{t("storageError")}</p>}
 
         {/* Filters */}
         {isLoaded && tasks.length > 0 && (
